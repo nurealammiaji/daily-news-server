@@ -1,8 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const news = require("./data/news.json");
 const categories = require("./data/categories.json");
 const app = express();
 const port = 5000;
+
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send("Daily News Server")
