@@ -16,9 +16,8 @@ app.get('/news', (req, res) => {
 })
 
 app.get('/news/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    console.log(id);
-    const specificNews = news.find(n => parseInt(n._id) === id);
+    const id = req.params.id;
+    const specificNews = news.find(n => n._id === id);
     res.send(specificNews);
 })
 
@@ -28,7 +27,6 @@ app.get('/categories', (req, res) => {
 
 app.get('/categories/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    console.log(id);
     const specificCategory = news.filter(n => parseInt(n.category_id) === id);
     res.send(specificCategory);
 })
