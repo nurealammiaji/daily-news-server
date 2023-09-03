@@ -28,7 +28,12 @@ app.get('/categories', (req, res) => {
 app.get('/categories/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const specificCategory = news.filter(n => parseInt(n.category_id) === id);
-    res.send(specificCategory);
+    if (id === 0) {
+        res.send(news);
+    }
+    else {
+        res.send(specificCategory);
+    }
 })
 
 app.listen(port, () => {
